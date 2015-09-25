@@ -195,8 +195,7 @@
             <message key="name.invalidPattern"
              value="Method name ''{0}'' must match pattern ''{1}''."/>
         </module>
-        <module name="SingleLineJavadoc">
-        </module>
+        <module name="SingleLineJavadoc"/>
         <module name="CommentsIndentation"/>
     </module>
 </module>
