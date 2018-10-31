@@ -1,22 +1,22 @@
-**Java Code Conventions**
+# Java Code Conventions
 
-# **Introduction**
+## Introduction
 
-1. **Why Have ****Code**** Conventions**
+### Why Have Code Conventions?
 
 Code conventions are important to programmers for a number of reasons:
 
-        * 80% of the lifetime cost of a piece of software goes to maintenance.
+* 80% of the lifetime cost of a piece of software goes to maintenance.
 
-        * Hardly any software is maintained for its whole life by the original author.
+* Hardly any software is maintained for its whole life by the original author.
 
-        * Code conventions improve the readability of the software, allowing engineers to understand new code more quickly and thoroughly.
+* Code conventions improve the readability of the software, allowing engineers to understand new code more quickly and thoroughly.
 
-        * If you ship your source code as a product, you need to make sure it is as well packaged and clean as any other product you create.
+* If you ship your source code as a product, you need to make sure it is as well packaged and clean as any other product you create.
 
-# Static Code Analysis
+## Static Code Analysis
 
-## Setting up Checkstyle
+### Setting up Checkstyle
 
 [Checkstyle](http://checkstyle.sourceforge.net/) will help educate and enforce our coding standards. You can set up your IDE to use Checkstyle to examine code for conformance to the standards. Learn more about the checks or Google the error message to find out why it complains about certain things.
 
@@ -30,7 +30,7 @@ Code conventions are important to programmers for a number of reasons:
 
 4. Check your code. With you code open in IntelliJ right click and you will see "Check Current File".
 
-# **File Organization**
+## File Organization
 
 A file consists of sections that should be separated by blank lines and an optional comment identifying each section.
 
@@ -38,13 +38,13 @@ Source files are encoded in UTF-8
 
 Files longer than 2000 lines are cumbersome and should be avoided.
 
-1. **Java Source Files**
+### Java Source Files
 
 Each Java source file contains a single public class or interface. When private classes and interfaces are associated with a public class, you can put them in the same source file as the public class. The public class should be the first class or interface in the file.
 
 Java source files have the following ordering:
 
-        * Beginning comments
+* Beginning comments
 
 All source files should begin with a c-style comment that lists the programmer(s), the date, a copyright notice, and also a brief description of the purpose of the program.
 
@@ -58,7 +58,7 @@ For example:
  * Copyright notice
  */
 ```
-        * Package and Import statements; for example:
+* Package and Import statements; for example:
 
 The first non-comment line of most Java source files is a package statement. After that, import statements can follow.
 
@@ -74,7 +74,7 @@ import java.awt.peer.CanvasPeer;
 import java.applet.Applet;
 ```
 
-        * Class or interface declarations
+* Class or interface declarations
 
 <table>
   <tr>
@@ -123,17 +123,17 @@ for the class/interface documentation comment.</td>
 </table>
 
 
-# **Indentation**
+## Indentation
 
 Four spaces should be used as the unit of indentation. The exact construction of the indentation is 4 spaces.
 
 Special characters like TAB and page break should be avoided
 
-1. **Line Length**
+1. Line Length
 
 Avoid lines longer than 120 characters, since they’re not handled well by many terminals and tools.
 
-2. ** Wrapping Lines**
+2. Wrapping Lines
 
 When an expression will not fit on a single line, break it according to these general principles:
 
@@ -169,23 +169,35 @@ Name1 = Name2 * (Name3 + Name4
 
 Following are two examples of indenting method declarations. The first is the conventional case. The second would shift the second and third lines to the far right if it used conventional indentation, so instead it indents only 8 spaces.
 
-//CONVENTIONAL INDENTATIONsomeMethod(int anArg, Object anotherArg, String yetAnotherArg,                      Object andStillAnother) {    ...}//INDENT 8 SPACES TO AVOID VERY DEEP INDENTSprivate static synchronized horkingLongMethodName(int anArg,            Object anotherArg, String yetAnotherArg,            Object andStillAnother) {    ...}
+```
+//CONVENTIONAL INDENTATION
+someMethod(int anArg, Object anotherArg, String yetAnotherArg,
+           Object andStillAnother) {
+    ...
+}
 
+//INDENT 8 SPACES TO AVOID VERY DEEP INDENTS
+private static synchronized horkingLongMethodName(int anArg,
+        Object anotherArg, String yetAnotherArg,
+Object andStillAnother) {
+    ...
+}
+
+```
 Here are three acceptable ways to format ternary expressions:
 
+```
 alpha = (aLongBooleanExpression) ? beta : gamma;
 
 alpha = (aLongBooleanExpression) ? beta
-
- : gamma;
+    : gamma;
 
 alpha = (aLongBooleanExpression)
+    ? beta
+    : gamma;
+```
 
- 		? beta
-
- 		: gamma;
-
-# **Comments**
+## Comments
 
 Java programs can have two kinds of comments: implementation comments and documentation comments. Implementation comments are those found in C++, which are delimited by /*...*/, and //. Documentation comments (known as "doc comments") are
 
@@ -203,11 +215,11 @@ Comments should not be enclosed in large boxes drawn with asterisks or other cha
 
 Comments should never include special characters such as form-feed and backspace.
 
-1.  **Implementation Comment Formats**
+### Implementation Comment Formats
 
 Programs can have four styles of implementation comments: block, single-line, trailing and end-of-line.
 
-* Block Comments
+#### Block Comments
 
 Block comments are used to provide descriptions of files, methods, data structures and algorithms.
 
@@ -224,7 +236,7 @@ Block comments have an asterisk "`*`" at the beginning of each line except the f
  */
 ```
 
-* Single-Line Comments
+#### Single-Line Comments
 
 Short comments can appear on a single line indented to the level of the code that follows. If a comment can't be written in a single line, it should follow the block comment format. A single-line comment should be preceded by a blank line. Here's an example of a single-line comment in Java code
 
@@ -235,7 +247,7 @@ if (condition) {
     ...
 }
 ```
-2. **Documentation Comments**
+### Documentation Comments
 
 Doc comments describe Java classes, interfaces, constructors, methods, and fields. Each doc comment is set inside the comment delimiters `/**...*/`, with one comment per class, interface, or member. This comment should appear just before the declaration:
 
@@ -264,9 +276,9 @@ Doc comments should not be positioned inside a method or constructor definition 
 
 * Protected / Private methods should include java doc comments when they are not easily understood.  This is up to developer / reviewer discretion.
 
-# **Declarations**
+## Declarations
 
-    1. **Number Per Line**
+### Number Per Line
 
 One declaration per line. In other words,
 ```
@@ -276,11 +288,11 @@ int level, size; // Avoid
 int foo,  fooarray[]; //WRONG!
 ```
 
-    2. **Initialization**
+### Initialization
 
 Try to initialize local variables where they're declared. The only reason not to initialize a variable where it's declared is if the initial value depends on some computation occurring first.
 
-    3. **Placement**
+### Placement
 
 Local variables are not habitually declared at the start of their containing block or block-like construct. Instead, local variables are declared close to the point they are first used (within reason), to minimize their scope. Local variable declarations typically have initializers, or are initialized immediately after declaration.
 
@@ -297,7 +309,7 @@ myMethod() {
     ...
 }
 ```
-    4. **Class and Interface Declarations**
+### Class and Interface Declarations
 
 When coding Java classes and interfaces, the following formatting rules should be followed:
 
@@ -323,7 +335,7 @@ class Sample extends Object {
 ```
 Methods are separated by a blank line
 
-    5. Annotations
+### Annotations
 
 Annotations applying to a class, method or constructor appear immediately after the documentation block, and each annotation is listed on a line of its own (that is, one annotation per line). These line breaks do not constitute line-wrapping so the indentation level is not increased
 
@@ -333,9 +345,9 @@ Annotations applying to a class, method or constructor appear immediately after 
 public String getNameIfPresent() { ... }
 ```
 
-# **Statements**
+## Statements
 
-1. **Simple Statements**
+### Simple Statements
 
 Each line should contain at most one statement. Example:
 
@@ -345,7 +357,7 @@ argc--;         // Correct
 argv++; argc--; // AVOID!
 ```
 
-2. **Compound Statements**
+### Compound Statements
 
 Compound statements are statements that contain lists of statements enclosed in braces "{ statements }". See the following sections for examples.
 
@@ -355,7 +367,7 @@ The opening brace should be at the end of the line that begins the compound stat
 
 Braces are used around all statements, even single statements, when they are part of a control structure, such as an if-else or for statement. This makes it easier to add statements without accidentally introducing bugs due to forgetting to add braces.
 
-3. **"return" Statements**
+### "return" Statements
 
 A return statement with a value should not use parentheses unless they make the return value more obvious in some way. Example:
 
@@ -365,7 +377,7 @@ return myDisk.size();
 return (size ? size : defaultSize);
 ```
 
-4. **if, if-else, if else-if else Statements**
+### if, if-else, if else-if else Statements
 
 The if-else class of statements should have the following form:
 
@@ -395,7 +407,7 @@ if (condition) //AVOID! THIS OMITS THE BRACES {}!
     statement;
 ```
 
-5. **for**** Statements**
+### `for` Statements
 
 A for statement should have the following form:
 
@@ -413,7 +425,7 @@ for (initialization; condition; update);
 
 When using the comma operator in the initialization or update clause of a for statement, avoid the complexity of using more than three variables. If needed, use separate statements before the for loop (for the initialization clause) or at the end of the loop (for the update clause).
 
-6. **while statements**
+### `while` statements
 
 A while statement should have the following form:
 
@@ -429,7 +441,7 @@ An empty while statement should have the following form:
 while (condition);
 ```
 
-7. **do-while statement**
+### `do-while` statement
 
 A do-while statement should have the following form:
 
@@ -439,7 +451,7 @@ do {
 } while (condition);
 ```
 
-8. **switch**** statements**
+### `switch` statements
 
 A switch statement should have the following form:
 
@@ -464,9 +476,9 @@ Every time a case falls through (doesn't include a break statement), add a comme
 
 Every switch statement should include a default case. The break in the default case is redundant, but it prevents a fall-through error if later another case is added.
 
-9. **try-catch Statements**
+### try-catch Statements
 
-**	A try-catch statement should have the following format:
+A try-catch statement should have the following format:
 
 ```
 try {
@@ -488,20 +500,20 @@ try {
 }
 ```
 
-10. **for collection loop**
+### `for` collection loop
 
 A for collection loop should have following format
 
 
 ```
 for (Object obj : objList) {
-  					…
+    …
 }
 ```
 
-# **White Space**
+## White Space
 
-1. **Blank Lines**
+### Blank Lines
 
 Blank lines improve readability by setting off sections of code that are logically related.
 
@@ -521,7 +533,7 @@ One blank line should always be used in the following circumstances:
 
 * Between logical sections inside a method to improve readability
 
-2. **Blank Spaces**
+### Blank Spaces
 
 Blank spaces should be used in the following circumstances:
 
@@ -564,7 +576,7 @@ myMethod((byte) aNum, (Object) x);
                            + 1);
 ```
 
-# **Naming Conventions**
+## Naming Conventions
 
 Naming conventions make programs more understandable by making them easier to read. They can also give information about the function of the identifier-for example, whether it's a constant, package, or class-which can be helpful in understanding the code.
 
@@ -646,7 +658,7 @@ float           myWidth;</td>
 </table>
 
 
-# **Types**
+## Types
 
 Type conversions must always be done explicitly never rely on implicit type conversion
 
@@ -658,9 +670,9 @@ Array specifiers must be attached to the type not the variable
 ```
 	int [] a =  new int[20] //NOT int a[] = new int[20]
 ```
-# **Programming Practices**
+## Programming Practices
 
-1. **Providing Access to Instance and Class Variables**
+### Providing Access to Instance and Class Variables
 
 Don't make any instance or class variable public without good reason. Just because it’s a class level variable doesn’t mean it needs a getter and setter.
 
@@ -668,7 +680,7 @@ Don't make any instance or class variable public without good reason. Just becau
 
 One example of appropriate public instance variables is the case where the class is essentially a data structure, with no behavior
 
-2. **Referring to Class Variables and Methods**
+### Referring to Class Variables and Methods
 
 Avoid using an object to access a class (static) variable or method. Use a class name instead. For example:
 
@@ -678,13 +690,13 @@ AClass.classMethod();      //OK
 anObject.classMethod();    //AVOID!
 ```
 
-3. **Constants**
+### Constants
 
 Numerical constants (literals) should not be coded directly, except for -1, 0, and 1, which can appear in a for loop as counter values.
 
 String constants should be used except for "" or null, some exceptions would be logging and errors.
 
-4. **Variable Assignments**
+### Variable Assignments
 
 * Avoid assigning several variables to the same value in a single statement. It is hard to read. Example:
 ```
@@ -700,7 +712,7 @@ should be written as
 a = b + c;
 d = a + r;
 ```
-5. **Miscellaneous Practices**
+### Miscellaneous Practices
 
 * Parentheses
 
@@ -747,7 +759,7 @@ If an expression containing a binary operator appears before the ? in the ternar
 (x >= 0) ? x : -x;
 ```
 
-6. **! operator and conditional expressions**
+### ! operator and conditional expressions
 
 * The not operator (!) is harder to seen when scanning code, making the code less readable. Use == false instead.
 
@@ -762,13 +774,13 @@ If an expression containing a binary operator appears before the ? in the ternar
 	}
 ```
 
-7. **@Override: always used**
+### @Override: always used
 
 A method is marked with the @Override annotation whenever it is legal. This includes a class method overriding a superclass method, a class method implementing an interface method, and an interface method respecifying a superinterface method.
 
 Exception:@Override may be omitted when the parent method is @Deprecated.
 
-8. **Caught exceptions: not ignored**
+### Caught exceptions: not ignored
 
 Except as noted below, it is very rarely correct to do nothing in response to a caught exception. Exceptions should usually be at least logged at debug or trace level.
 
@@ -792,7 +804,7 @@ try {
 } catch (NoSuchElementException expected) {
 }
 ```
-# Logging
+## Logging
 
 * Each project/application should choose and enforce usage of a standard logging library (ex. Log4j)
 
@@ -812,7 +824,7 @@ try {
 
 * Include relevant data that may have caused the error in the log message. For example, "User id not found: -1" is better than “User id not found.”
 
-# Security
+## Security
 
 Consult these resources for guidance on secure coding practices, particularly CERT standard. Some stylistic considerations are mentioned further on.
 
@@ -828,9 +840,9 @@ See [switch statement](#bookmark=id.tgvvryuo1fzh).
 
 Security checks should be located and maintained in a single place.  Be sure to apply "Don’t Repeat Yourself" (DRY) principal frequently and comprehensively to all security check logic throughout the application.
 
-# Generics
+## Generics
 
-## When to Use Generics
+### When to Use Generics
 
 * With Collections. The Java Collections framework is excellent and should be used instead of Arrays.
 
@@ -838,7 +850,7 @@ Security checks should be located and maintained in a single place.  Be sure to 
 
 * If you are using variables of type Object to store values form various classes, you might want to use Generics instead.
 
-## Naming Convention for Generic types in a class definition
+### Naming Convention for Generic types in a class definition
 
 Oracle [recommends](https://docs.oracle.com/javase/tutorial/java/generics/types.html) the following naming convention:
 
@@ -856,7 +868,7 @@ Oracle [recommends](https://docs.oracle.com/javase/tutorial/java/generics/types.
 
 public class Box<T> {    // T stands for "Type"    private T t;    public void set(T t) { this.t = t; }    public T get() { return t; }}
 
-## Generic Type Inference
+### Generic Type Inference
 
 When declaring variables using generics, it is not necessary to list the generic data type twice.
 
@@ -866,13 +878,13 @@ Box<Integer> integerBox = new Box<>();  // Recommended
 Box<Integer> integerBox = new Box<Integer>();  // AVOID
 ```
 
-# Java 8
+## Java 8
 
 If you are interested in a learning more about Java 8. A good book covering all of the new features is:
 
 [https://www.manning.com/books/java-8-in-action](https://www.manning.com/books/java-8-in-action)
 
-## Streams
+### Streams
 
 * Do not use Parallel Streams unless you have tested to verify that there is actually a speed improvement. For small data sets, Parallel streams add a lot of overhead.
 
@@ -887,7 +899,7 @@ List<String> newList = myList.stream()
 .sorted()
     .toList();
 ```
-## Optional Type
+### Optional Type
 
 There is a good discussion of the new Java 8 Optional data type here:
 
@@ -897,7 +909,7 @@ Use of the Optional data type should be discussed by the individual team and an 
 
 The "pure" view of the Optional data type is that if a method returns an object that might be null, then the return type should be Optional<OrignalDataType>. However, a method that is never supposed to return null should return OriginalDataType. The idea is that the code is semantic. If the developer of the method wants you to be concerned with missing values they signal that by using the Optional data type. If they don’t, then they are indicating that the method is always supposed to return a value and therefore you shouldn’t need to do an explicit Null check.
 
-## Lambda Expressions
+### Lambda Expressions
 
 * When a Method reference is available, it should be used instead of a lambda expressionBad Example:List<String> newList = myList.stream()    .map(s -> s.toUpperCase())    .toList();Good Example:List<String> newList = myList.stream()    .map(String::toUpperCase)    .toList();
 
@@ -905,7 +917,7 @@ The "pure" view of the Optional data type is that if a method returns an object 
 
 * Complex lambda expressions should be written as methods or predicates.
 
-## Date & Time Objects
+### Date & Time Objects
 
 The java.util.Date class has been deprecated for a very long time, but until Java 8 has continued to be used because the alternatives were not very good. With Java 8, this has changed and the new java.time.LocalDate and java.time.LocalTime and related classes. Unless you are dealing with legacy code that requires java.util.Date, do NOT use it anymore. Use the new classes.
 
@@ -917,8 +929,8 @@ LocalDate myDate1 = new LocalDate();  // Use the java.time classes
 
 Date myDate2 = new Date();  // AVOID
 ```
-# **References**
+# References
 
-**[https://google.github.io/styleguide/javaguide.htm**l](https://google.github.io/styleguide/javaguide.html)
+* [https://google.github.io/styleguide/javaguide.html](https://google.github.io/styleguide/javaguide.html)
 
-**[http://www.oracle.com/technetwork/java/codeconventions-150003.pd**f](http://www.oracle.com/technetwork/java/codeconventions-150003.pdf)
+* [http://www.oracle.com/technetwork/java/codeconventions-150003.pdf](http://www.oracle.com/technetwork/java/codeconventions-150003.pdf)
