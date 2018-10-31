@@ -44,27 +44,23 @@ Each Java source file contains a single public class or interface. When private 
 
 Java source files have the following ordering:
 
-        * Beginning comments 
+        * Beginning comments
 
-All source files should begin with a c-style comment that lists the programmer(s), the date, a copyright notice, and also a brief description of the purpose of the program. 
+All source files should begin with a c-style comment that lists the programmer(s), the date, a copyright notice, and also a brief description of the purpose of the program.
 
 For example:
 
+```
 /*
-
  * Classname
-
  *
-
  *
-
  * Copyright notice
-
  */
-
+```
         * Package and Import statements; for example:
 
-The first non-comment line of most Java source files is a package statement. After that, import statements can follow. 
+The first non-comment line of most Java source files is a package statement. After that, import statements can follow.
 
 Import statements must be grouped with associated packages together and one blank line between groups
 
@@ -72,11 +68,11 @@ Imported classes should always be listed explicitly
 
 For example:
 
+```
 package java.awt;
-
-import java.awt.peer.CanvasPeer; 
-
+import java.awt.peer.CanvasPeer;
 import java.applet.Applet;
+```
 
         * Class or interface declarations
 
@@ -89,7 +85,7 @@ import java.applet.Applet;
   <tr>
     <td>1</td>
     <td>Class/interface documentation
-comment (/**...*/)</td>
+comment (`/*...*/`)</td>
     <td></td>
   </tr>
   <tr>
@@ -100,7 +96,7 @@ comment (/**...*/)</td>
   <tr>
     <td>3</td>
     <td>Class/interface implementation
-comment (/*...*/), if necessary</td>
+comment (`/*...*/`), if necessary</td>
     <td>This comment should contain any class-wide or interface-wide information that wasn’t appropriate
 for the class/interface documentation comment.</td>
   </tr>
@@ -135,7 +131,7 @@ Special characters like TAB and page break should be avoided
 
 1. **Line Length**
 
-Avoid lines longer than 120 characters, since they’re not handled well by many terminals and tools. 
+Avoid lines longer than 120 characters, since they’re not handled well by many terminals and tools.
 
 2. ** Wrapping Lines**
 
@@ -153,23 +149,23 @@ When an expression will not fit on a single line, break it according to these ge
 
 Here are some examples of breaking method calls:
 
+```
 function (longExpression1, longExpression2, longExpression3,
-
 longExpression4, longExpression5);
 
 aVar = function1(longExpression1,
-
           function2 (longExpression2, longExpression3));
+```
 
 Following are two examples of breaking an arithmetic expression. The first is preferred, since the break occurs outside the parenthesized expression, which is at a higher level.
 
+```
 Name1 = Name2 * (Name3 + Name4 - Name5)
-
  		    + (4 * name6); // PREFER
 
 Name1 = Name2 * (Name3 + Name4
-
  		   - Name5) + 4 * name6; // AVOID
+```
 
 Following are two examples of indenting method declarations. The first is the conventional case. The second would shift the second and third lines to the far right if it used conventional indentation, so instead it indents only 8 spaces.
 
@@ -193,7 +189,7 @@ alpha = (aLongBooleanExpression)
 
 Java programs can have two kinds of comments: implementation comments and documentation comments. Implementation comments are those found in C++, which are delimited by /*...*/, and //. Documentation comments (known as "doc comments") are
 
-Java-only, and are delimited by /**...*/. Doc comments can be extracted to HTML files using the javadoc tool.
+Java-only, and are delimited by `/**...*/`. Doc comments can be extracted to HTML files using the javadoc tool.
 
 Implementation comments are meant for commenting out code or for comments about the particular implementation. Doc comments are meant to describe the specification of the code, from an implementation-free perspective to be read by developers who might not necessarily have the source code at hand.
 
@@ -213,47 +209,44 @@ Programs can have four styles of implementation comments: block, single-line, tr
 
 * Block Comments
 
-Block comments are used to provide descriptions of files, methods, data structures and algorithms. 
+Block comments are used to provide descriptions of files, methods, data structures and algorithms.
 
-Block comments should be used at the beginning of each file and before each method. They can also be used in other places, such as within methods. 
+Block comments should be used at the beginning of each file and before each method. They can also be used in other places, such as within methods.
 
-Block comments inside a function or method should be indented to the same level as the code they describe. 
+Block comments inside a function or method should be indented to the same level as the code they describe.
 
 A block comment should be preceded by a blank line to set it apart from the rest of the code.
 
-Block comments have an asterisk "*" at the beginning of each line except the first.
-
+Block comments have an asterisk "`*`" at the beginning of each line except the first.
+```
 /*
-
  * Here is a block comment.
-
  */
+```
 
 * Single-Line Comments
 
 Short comments can appear on a single line indented to the level of the code that follows. If a comment can't be written in a single line, it should follow the block comment format. A single-line comment should be preceded by a blank line. Here's an example of a single-line comment in Java code
 
+```
 if (condition) {
-
-    //Handle the condition. // we can use single line comment if it is a one line comment
-
+    //Handle the condition.
+    // we can use single line comment if it is a one line comment
     ...
-
 }
-
+```
 2. **Documentation Comments**
 
-Doc comments describe Java classes, interfaces, constructors, methods, and fields. Each doc comment is set inside the comment delimiters /**...*/, with one comment per class, interface, or member. This comment should appear just before the declaration:
+Doc comments describe Java classes, interfaces, constructors, methods, and fields. Each doc comment is set inside the comment delimiters `/**...*/`, with one comment per class, interface, or member. This comment should appear just before the declaration:
 
+```
 /**
-
  * The Example class provides ...
-
  */
 
 public class Example { ...
-
-Notice that top-level classes and interfaces are not indented, while their members are. The first line of doc comment (/**) for classes and interfaces is not indented; subsequent doc comment lines each have 1 space of indentation (to vertically align the asterisks). Members, including constructors, have 4 spaces for the first doc comment line and 5 spaces thereafter.
+```
+Notice that top-level classes and interfaces are not indented, while their members are. The first line of doc comment (`/**`) for classes and interfaces is not indented; subsequent doc comment lines each have 1 space of indentation (to vertically align the asterisks). Members, including constructors, have 4 spaces for the first doc comment line and 5 spaces thereafter.
 
 If you need to give information about a class, interface, variable, or method that isn't appropriate for documentation, use an implementation block comment or single-line comment immediately after the declaration. For example, details about the implementation of a class should go in in such an implementation block comment following the class statement, not in the class doc comment.
 
@@ -261,11 +254,11 @@ Doc comments should not be positioned inside a method or constructor definition 
 
 * All classes are to include a comment block that describing the basic purpose of the class.  (This is also a good place to put any overarching TODO statements).
 
-* All public methods need to include Java doc comments except for accessors. 
+* All public methods need to include Java doc comments except for accessors.
 
     * Parameters are to be included, but do not require documentation unless it is something meaningful i.e. avoid      * @param name   The name
 
-    * Return statements are to be included and documented. 
+    * Return statements are to be included and documented.
 
     * Thrown exceptions may be included, but do not need to be documented.
 
@@ -276,14 +269,12 @@ Doc comments should not be positioned inside a method or constructor definition 
     1. **Number Per Line**
 
 One declaration per line. In other words,
-
+```
 int level = 0;
-
-int size = 0; 
-
+int size = 0;
 int level, size; // Avoid
-
 int foo,  fooarray[]; //WRONG!
+```
 
     2. **Initialization**
 
@@ -295,24 +286,17 @@ Local variables are not habitually declared at the start of their containing blo
 
 Avoid local declarations that hide declarations at higher levels. For example, do not declare the same variable name in an inner block:
 
+```
 int count;
-
 ...
-
 myMethod() {
-
     if (condition) {
-
         int count = 0;     // AVOID!
-
         ...
-
     }
-
     ...
-
 }
-
+```
     4. **Class and Interface Declarations**
 
 When coding Java classes and interfaces, the following formatting rules should be followed:
@@ -323,37 +307,31 @@ Open brace "{" appears at the end of the same line as the declaration statement
 
 Closing brace "}" starts a line by itself indented to match its corresponding opening statement, except when it is a null statement the "}" should appear immediately after the "{"
 
+```
 class Sample extends Object {
-
     int ivar1;
-
     int ivar2;
 
     Sample(int i, int j) {
-
         ivar1 = i;
-
         ivar2 = j;
-
     }
 
     int emptyMethod() {}
-
     ...
-
 }
-
+```
 Methods are separated by a blank line
 
     5. Annotations
 
 Annotations applying to a class, method or constructor appear immediately after the documentation block, and each annotation is listed on a line of its own (that is, one annotation per line). These line breaks do not constitute line-wrapping so the indentation level is not increased
 
+```
 @Override
-
 @Nullable
-
 public String getNameIfPresent() { ... }
+```
 
 # **Statements**
 
@@ -361,11 +339,11 @@ public String getNameIfPresent() { ... }
 
 Each line should contain at most one statement. Example:
 
+```
 argv++;         // Correct
-
 argc--;         // Correct  
-
 argv++; argc--; // AVOID!
+```
 
 2. **Compound Statements**
 
@@ -381,65 +359,57 @@ Braces are used around all statements, even single statements, when they are par
 
 A return statement with a value should not use parentheses unless they make the return value more obvious in some way. Example:
 
+```
 return;
-
 return myDisk.size();
-
 return (size ? size : defaultSize);
+```
 
 4. **if, if-else, if else-if else Statements**
 
 The if-else class of statements should have the following form:
 
+```
 if (condition) {
-
     statements;
-
 }
 
 if (condition) {
-
     statements;
-
 } else {
-
     statements;
-
 }
 
 if (condition) {
-
     statements;
-
 } else if (condition) {
-
     statements;
-
 } else {
-
     statements;
-
 }
-
+```
 Note: if statements always use braces, {}. Avoid the following error-prone form:
 
+```
 if (condition) //AVOID! THIS OMITS THE BRACES {}!
-
     statement;
+```
 
 5. **for**** Statements**
 
 A for statement should have the following form:
 
+```
 for (initialization; condition; update) {
-
     statements;
-
 }
+```
 
 An empty for statement (one in which all the work is done in the initialization, condition, and update clauses) should have the following form:
 
+```
 for (initialization; condition; update);
+```
 
 When using the comma operator in the initialization or update clause of a for statement, avoid the complexity of using more than three variables. If needed, use separate statements before the for loop (for the initialization clause) or at the end of the loop (for the update clause).
 
@@ -447,103 +417,87 @@ When using the comma operator in the initialization or update clause of a for st
 
 A while statement should have the following form:
 
+```
 while (condition) {
-
     statements;
-
 }
+```
 
 An empty while statement should have the following form:
 
+```
 while (condition);
+```
 
 7. **do-while statement**
 
 A do-while statement should have the following form:
 
+```
 do {
-
     statements;
-
 } while (condition);
+```
 
 8. **switch**** statements**
 
 A switch statement should have the following form:
 
+```
 switch (condition) {
-
 case ABC:
-
     statements;
-
     /* falls through */
-
 case DEF:
-
     statements;
-
     break;
-
 case XYZ:
-
     statements;
-
     break;
-
 default:
-
     statements;
-
     break;
-
 }
+```
 
-Every time a case falls through (doesn't include a break statement), add a comment where the break statement would normally be. This is shown in the preceding code example with the /* falls through */ comment.
+Every time a case falls through (doesn't include a break statement), add a comment where the break statement would normally be. This is shown in the preceding code example with the `/* falls through */` comment.
 
 Every switch statement should include a default case. The break in the default case is redundant, but it prevents a fall-through error if later another case is added.
 
 9. **try-catch Statements**
 
-**	**A try-catch statement should have the following format:
+**	A try-catch statement should have the following format:
 
+```
 try {
-
     statements;
-
 } catch (ExceptionClass e) {
-
      statements;
-
 }
+```
 
 A try-catch statement may also be followed by finally, which executes regardless of whether or not the try block has completed successfully.
 
+```
 try {
-
     statements;
-
 } catch (ExceptionClass e) {
-
     statements;
-
 } finally {
-
     statements;
-
 }
+```
 
 10. **for collection loop**
 
-A for collection loop should have following format 
+A for collection loop should have following format
 
-	      		
 
+```
 for (Object obj : objList) {
-
   					…
-
 }
+```
 
 # **White Space**
 
@@ -573,15 +527,14 @@ Blank spaces should be used in the following circumstances:
 
 * A keyword followed by a parenthesis should be separated by a space. Example:
 
+```
       while (true) {
-
            ...
-
        }
 
      while  ( true ) {   // Avoid space between ( and true.
-
        }
+```
 
 Note that a blank space should not be used between a method name and its opening parenthesis. This helps to distinguish keywords from method calls.
 
@@ -589,31 +542,27 @@ Note that a blank space should not be used between a method name and its opening
 
 * All binary operators except . should be separated from their operands by spaces. Blank spaces should never separate unary operators such as unary minus, increment ("++"), and decrement ("--") from their operands. Example:
 
-a += c + d;
-
+```
+    a += c + d;
     a = (a + b) / (c * d);
 
-    
-
     while (d++ = s++) {
-
         n++;
-
     }
-
     printSize("size is " + foo + "\n");
+```
 
 * The expressions in a for statement should be separated by blank spaces. Example:
-
+```
 for (expr1; expr2; expr3)
+```
 
 * Casts should be followed by a blank space. Examples:
-
+```
 myMethod((byte) aNum, (Object) x);
-
-    myMethod((int) (cp + 5), ((int) (i + 3)) 
-
+    myMethod((int) (cp + 5), ((int) (i + 3))
                            + 1);
+```
 
 # **Naming Conventions**
 
@@ -642,13 +591,13 @@ edu.cmu.cs.bovik.cheese</td>
     <td>Class names should be nouns, in mixed case with the first letter of each internal word capitalized. Try to keep your class names simple and descriptive. Use whole words-avoid acronyms and abbreviations (unless the abbreviation is much more widely used than the long form, such as URL or HTML).
 
 Implementation class should have suffix Impl </td>
-    <td>class Raster; 
+    <td>class Raster;
 class ImageSprite;</td>
   </tr>
   <tr>
     <td>Interfaces</td>
     <td>Interface names should be capitalized like class names.</td>
-    <td>interface RasterDelegate; 
+    <td>interface RasterDelegate;
 interface Storing;</td>
   </tr>
   <tr>
@@ -664,8 +613,8 @@ Is prefix is used for Boolean getter and setters
 Acronyms such as XML and HTTP should be treated as words, such as getHttp(), getXml(). Not getXML() or getHTTP()
 
 </td>
-    <td>run(); 
-runFast(); 
+    <td>run();
+runFast();
 getBackground();
 </td>
   </tr>
@@ -673,7 +622,7 @@ getBackground();
     <td>Variables</td>
     <td>Except for variables, all instance, class, and class constants are in mixed case with a lowercase first letter. Internal words start with capital letters. Variable names should not start with underscore _ or dollar sign $ characters, even though both are allowed.
 
-Variable names should be meaningful. The choice of a variable name should be mnemonic- that is, designed to indicate to the casual observer the intent of its use. 
+Variable names should be meaningful. The choice of a variable name should be mnemonic- that is, designed to indicate to the casual observer the intent of its use.
 One-character variable names should be avoided except for loop control variables.
 
 Common names for temporary variables are i, j, k, m, and n.
@@ -685,12 +634,14 @@ float           myWidth;</td>
   </tr>
   <tr>
     <td>Constants</td>
-    <td>The names of variables declared class constants and of ANSI constants should be all uppercase with words separated by underscores ("_"). </td>
-    <td>static final int MIN_WIDTH = 4;
-
-static final int MAX_WIDTH = 999;
-
-static final int GET_THE_CPU = 1;</td>
+    <td>The names of variables declared class constants and of ANSI constants should be all uppercase with words separated by underscores ("`_`"). </td>
+    <td>
+```
+    static final int MIN_WIDTH = 4;
+    static final int MAX_WIDTH = 999;
+    static final int GET_THE_CPU = 1;
+```
+  </td>
   </tr>
 </table>
 
@@ -699,12 +650,14 @@ static final int GET_THE_CPU = 1;</td>
 
 Type conversions must always be done explicitly never rely on implicit type conversion
 
+```
 	floatValue = (float) intValue // NOT floatValue = intValue
-
+```
 Array specifiers must be attached to the type not the variable
 
+```
 	int [] a =  new int[20] //NOT int a[] = new int[20]
-
+```
 # **Programming Practices**
 
 1. **Providing Access to Instance and Class Variables**
@@ -719,11 +672,11 @@ One example of appropriate public instance variables is the case where the class
 
 Avoid using an object to access a class (static) variable or method. Use a class name instead. For example:
 
+```
 classMethod();             //OK
-
 AClass.classMethod();      //OK
-
 anObject.classMethod();    //AVOID!
+```
 
 3. **Constants**
 
@@ -734,78 +687,80 @@ String constants should be used except for "" or null, some exceptions would be 
 4. **Variable Assignments**
 
 * Avoid assigning several variables to the same value in a single statement. It is hard to read. Example:
-
+```
 fooBar.fChar = barFoo.lchar = 'c'; // AVOID!
-
+```
 * Do not use embedded assignments in an attempt to improve run-time performance. This is the job of the compiler. Example:
-
+```
 d = (a = b + c) + r;        // AVOID!
-
-</blockquote>
+```
 
 should be written as
-
+```
 a = b + c;
-
 d = a + r;
-
+```
 5. **Miscellaneous Practices**
 
 * Parentheses
 
 It is generally a good idea to use parentheses liberally in expressions involving mixed operators to avoid operator precedence problems. Even if the operator precedence seems clear to you, it might not be to others-you shouldn't assume that other programmers know precedence as well as you do.
-
+```
 if (a == b && c == d)     // AVOID!
 
 if ((a == b) && (c == d)) // RIGHT
+```
 
 * Returning Values
 
 Try to make the structure of your program match the intent. Example:
 
-if (
-
-             booleanExpression) {
-
+```
+if (booleanExpression) {
     return true;
 
 } else {
-
     return false;
-
 }
+```
 
-          
 
 should instead be written as
 
+```
 boolean isOkay = complexExpression;
-
 return  isOkay;
+```
 
-or 
+or
 
+```
 return simpleExpression;
+```
 
-          
 
-* Expressions before `?' in the Conditional Operator
+* Expressions before `?` in the Conditional Operator
 
 If an expression containing a binary operator appears before the ? in the ternary ?: operator, it should be parenthesized. Example:
 
+```
 (x >= 0) ? x : -x;
+```
 
 6. **! operator and conditional expressions**
 
 * The not operator (!) is harder to seen when scanning code, making the code less readable. Use == false instead.
 
-	if(!isUser()) { 		// AVOID
+
+```
+	if (!isUser()) { 		// AVOID
 
 	}
 
 	if (isUser() == false) {	// good
 
 	}
+```
 
 7. **@Override: always used**
 
@@ -819,32 +774,24 @@ Except as noted below, it is very rarely correct to do nothing in response to a 
 
 When it truly is appropriate to take no action whatsoever in a catch block, the reason this is justified is explained in a comment.
 
+```
 try {
-
   int i = Integer.parseInt(response);
-
   return handleNumericResponse(i);
-
 } catch (NumberFormatException ok) {
-
   // it's not numeric; that's fine, just continue
-
 }
-
 return handleTextResponse(response);
-
+```
 Exception: In tests, a caught exception may be ignored without comment if it is named expected. The following is a very common idiom for ensuring that the method under test does throw an exception of the expected type, so a comment is unnecessary here.
 
+```
 try {
-
   emptyStack.pop();
-
   fail();
-
 } catch (NoSuchElementException expected) {
-
 }
-
+```
 # Logging
 
 * Each project/application should choose and enforce usage of a standard logging library (ex. Log4j)
@@ -855,11 +802,11 @@ try {
 
 * Exceptions should be chained except for good reasons
 
+```
          catch (NullPointerException npe){
-
              throw new ApiException(npe);
-
          }
+```
 
 * When adding temporary logging for trouble shooting, add a // TODO remove temporary logs comment by set of log messages that should be removed.
 
@@ -913,13 +860,15 @@ public class Box<T> {    // T stands for "Type"    private T t;    public vo
 
 When declaring variables using generics, it is not necessary to list the generic data type twice.
 
+```
 Box<Integer> integerBox = new Box<>();  // Recommended
 
 Box<Integer> integerBox = new Box<Integer>();  // AVOID
+```
 
 # Java 8
 
-If you are interested in a learning more about Java 8. A good book covering all of the new features is: 
+If you are interested in a learning more about Java 8. A good book covering all of the new features is:
 
 [https://www.manning.com/books/java-8-in-action](https://www.manning.com/books/java-8-in-action)
 
@@ -929,13 +878,18 @@ If you are interested in a learning more about Java 8. A good book covering all 
 
 * Formatting for chained stream functions should have each step in the chain on a separate line indented four spaces from the original line of code. For example:
 
+```
 List<String> myList = Arrays.asList("a1", "a2", "b1", "c2", "c1");
 
-List<String> newList = myList.stream()    .filter(s -> s.startsWith("c"))    .map(String::toUpperCase)    .sorted()    .toList();
-
+List<String> newList = myList.stream()
+    .filter(s -> s.startsWith("c"))
+    .map(String::toUpperCase)
+.sorted()
+    .toList();
+```
 ## Optional Type
 
-There is a good discussion of the new Java 8 Optional data type here: 
+There is a good discussion of the new Java 8 Optional data type here:
 
 [http://www.oracle.com/technetwork/articles/java/java8-optional-2175753.html](http://www.oracle.com/technetwork/articles/java/java8-optional-2175753.html)
 
@@ -945,7 +899,7 @@ The "pure" view of the Optional data type is that if a method returns an object 
 
 ## Lambda Expressions
 
-* When a Method reference is available, it should be used instead of a lambda expression Bad Example:List<String> newList = myList.stream()    .map(s -> s.toUpperCase())    .toList();Good Example:List<String> newList = myList.stream()    .map(String::toUpperCase)    .toList();
+* When a Method reference is available, it should be used instead of a lambda expressionBad Example:List<String> newList = myList.stream()    .map(s -> s.toUpperCase())    .toList();Good Example:List<String> newList = myList.stream()    .map(String::toUpperCase)    .toList();
 
 * The variables defined by lambda expressions are typically single character variables.
 
@@ -955,15 +909,16 @@ The "pure" view of the Optional data type is that if a method returns an object 
 
 The java.util.Date class has been deprecated for a very long time, but until Java 8 has continued to be used because the alternatives were not very good. With Java 8, this has changed and the new java.time.LocalDate and java.time.LocalTime and related classes. Unless you are dealing with legacy code that requires java.util.Date, do NOT use it anymore. Use the new classes.
 
-import java.util.Date;import java.time.LocalDate;
+```
+import java.util.Date;
+import java.time.LocalDate;
 
 LocalDate myDate1 = new LocalDate();  // Use the java.time classes
 
 Date myDate2 = new Date();  // AVOID
-
+```
 # **References**
 
 **[https://google.github.io/styleguide/javaguide.htm**l](https://google.github.io/styleguide/javaguide.html)
 
 **[http://www.oracle.com/technetwork/java/codeconventions-150003.pd**f](http://www.oracle.com/technetwork/java/codeconventions-150003.pdf)
-
