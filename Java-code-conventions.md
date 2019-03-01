@@ -171,17 +171,24 @@ Following are two examples of indenting method declarations. The first is the co
 
 ```
 //CONVENTIONAL INDENTATION
-someMethod(int anArg, Object anotherArg, String yetAnotherArg,
+
+someMethod(int anArg, Object anotherArg, String yetAnotherArg,
            Object andStillAnother) {
     ...
-}
 
-//INDENT 8 SPACES TO AVOID VERY DEEP INDENTS
-private static synchronized horkingLongMethodName(int anArg,
+}
+
+
+
+//INDENT 8 SPACES TO AVOID VERY DEEP INDENTS
+
+private static synchronized horkingLongMethodName(int anArg,
         Object anotherArg, String yetAnotherArg,
-Object andStillAnother) {
+
+Object andStillAnother) {
     ...
-}
+
+}
 
 ```
 Here are three acceptable ways to format ternary expressions:
@@ -761,15 +768,15 @@ If an expression containing a binary operator appears before the ? in the ternar
 
 ### ! operator and conditional expressions
 
-* The not operator (!) is harder to seen when scanning code, making the code less readable. Use == false instead.
+* There is nothing inherently wrong with the not operator (!). Just be aware that it might be harder to seen when scanning code. Also be careful of double negatives `if (!StringUtils.isNotEmpty(val))`. When in doubt read your if statement aloud and consider if you highschool English teacher would approve.  
 
 
 ```
-	if (!isUser()) { 		// AVOID
+	if (!name.startsWith("Rich")) {  // OK
 
 	}
 
-	if (isUser() == false) {	// good
+	if (isUser() == false) {	// If you feel this is more readable...
 
 	}
 ```
@@ -866,7 +873,13 @@ Oracle [recommends](https://docs.oracle.com/javase/tutorial/java/generics/types.
 
 * S,U,V etc. - 2nd, 3rd, 4th types
 
-public class Box<T> {    // T stands for "Type"    private T t;    public void set(T t) { this.t = t; }    public T get() { return t; }}
+public class Box<T> {
+    // T stands for "Type"
+    private T t;
+
+    public void set(T t) { this.t = t; }
+    public T get() { return t; }
+}
 
 ### Generic Type Inference
 
@@ -894,9 +907,11 @@ If you are interested in a learning more about Java 8. A good book covering all 
 List<String> myList = Arrays.asList("a1", "a2", "b1", "c2", "c1");
 
 List<String> newList = myList.stream()
-    .filter(s -> s.startsWith("c"))
+
+    .filter(s -> s.startsWith("c"))
     .map(String::toUpperCase)
-.sorted()
+
+.sorted()
     .toList();
 ```
 ### Optional Type
@@ -911,7 +926,16 @@ The "pure" view of the Optional data type is that if a method returns an object 
 
 ### Lambda Expressions
 
-* When a Method reference is available, it should be used instead of a lambda expressionBad Example:List<String> newList = myList.stream()    .map(s -> s.toUpperCase())    .toList();Good Example:List<String> newList = myList.stream()    .map(String::toUpperCase)    .toList();
+* When a Method reference is available, it should be used instead of a lambda expression
+Bad Example:
+List<String> newList = myList.stream()
+    .map(s -> s.toUpperCase())
+    .toList();
+
+Good Example:
+List<String> newList = myList.stream()
+    .map(String::toUpperCase)
+    .toList();
 
 * The variables defined by lambda expressions are typically single character variables.
 
